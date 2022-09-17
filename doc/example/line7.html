@@ -39,6 +39,7 @@
                 <div class="well sidebar-nav">
                     <div class="nav-header"><a href="#" onclick="autoResize()" class="glyphicon glyphicon-resize-full" id ="icon-resize" ></a>option</div>
                     <textarea id="code" name="code">
+<!-- 双数值轴折线：x轴和y轴均是数据轴，相应的data的数据格式为二维数组，即[x轴数值,y轴数值] -->
 option = {
     title : {
         text: '双数值轴折线',
@@ -48,6 +49,7 @@ option = {
         trigger: 'axis',
         axisPointer:{
             show: true,
+            <!-- type默认为line，line直线，cross十字准星，shadow阴影 -->
             type : 'cross',
             lineStyle: {
                 type : 'dashed',
@@ -56,7 +58,7 @@ option = {
         },
         formatter : function (params) {
             return params.seriesName + ' : [ '
-                   + params.value[0] + ', ' 
+                   + params.value[0] + ', '
                    + params.value[1] + ' ]';
         }
     },
@@ -99,6 +101,7 @@ option = {
             ],
             markPoint : {
                 data : [
+                <!--  valueIndex: 0用来切换比较的数值，不声明，默认比较y轴的数值大小 -->
                     // 纵轴，默认
                     {type : 'max', name: '最大值',symbol: 'emptyCircle', itemStyle:{normal:{color:'#dc143c',label:{position:'top'}}}},
                     {type : 'min', name: '最小值',symbol: 'emptyCircle', itemStyle:{normal:{color:'#dc143c',label:{position:'bottom'}}}},
@@ -143,7 +146,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>
