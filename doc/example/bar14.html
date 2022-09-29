@@ -58,6 +58,7 @@ option = {
         }
     },
     calculable: true,
+    <!-- grid.borderWidth:控制边框宽度 -->
     grid: {
         borderWidth: 0,
         y: 80,
@@ -104,7 +105,7 @@ option = {
                     trigger: 'item',
                     backgroundColor: 'rgba(0,0,0,0)',
                     formatter: function(params){
-                        return '<img src="' 
+                        return '<img src="'
                                 + params.data.symbol.replace('image://', '')
                                 + '"/>';
                     }
@@ -140,7 +141,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

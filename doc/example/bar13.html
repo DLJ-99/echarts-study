@@ -56,7 +56,7 @@ option = {
         },
         formatter : function (params) {
             return params.seriesName + ' : [ '
-                   + params.value[0] + ', ' 
+                   + params.value[0] + ', '
                    + params.value[1] + ' ]';
         }
     },
@@ -101,7 +101,7 @@ option = {
                     // 纵轴，默认
                     {type : 'max', name: '最大值',symbol: 'emptyCircle', itemStyle:{normal:{color:'#dc143c',label:{position:'top'}}}},
                     {type : 'min', name: '最小值',symbol: 'emptyCircle', itemStyle:{normal:{color:'#dc143c',label:{position:'bottom'}}}},
-                    // 横轴
+                    // 横轴，valueIndex设置为0，代表取X轴上的数据
                     {type : 'max', name: '最大值', valueIndex: 0, symbol: 'emptyCircle', itemStyle:{normal:{color:'#1e90ff',label:{position:'right'}}}},
                     {type : 'min', name: '最小值', valueIndex: 0, symbol: 'emptyCircle', itemStyle:{normal:{color:'#1e90ff',label:{position:'left'}}}}
                 ]
@@ -143,7 +143,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

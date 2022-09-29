@@ -39,6 +39,7 @@
                 <div class="well sidebar-nav">
                     <div class="nav-header"><a href="#" onclick="autoResize()" class="glyphicon glyphicon-resize-full" id ="icon-resize" ></a>option</div>
                     <textarea id="code" name="code">
+                        <!-- timeline：时间轴，可以与坐标系搭配使用 -->
 option = {
     timeline:{
         data:[
@@ -60,6 +61,7 @@ option = {
                 'subtext':'数据来自国家统计局'
             },
             tooltip : {'trigger':'axis'},
+            <!-- selected属性里可以控制默认选中的值 -->
             legend : {
                 x:'right',
                 'data':['GDP','金融','房地产','第一产业','第二产业','第三产业'],
@@ -73,9 +75,9 @@ option = {
                 }
             },
             toolbox : {
-                'show':true, 
+                'show':true,
                 orient : 'vertical',
-                x: 'right', 
+                x: 'right',
                 y: 'center',
                 'feature':{
                     'mark':{'show':true},
@@ -87,6 +89,7 @@ option = {
             },
             calculable : true,
             grid : {'y':80,'y2':100},
+            <!-- 坐标轴的data属性支持输入换行符"\n" -->
             xAxis : [{
                 'type':'category',
                 'axisLabel':{'interval':0},
@@ -108,13 +111,16 @@ option = {
                     'name':'其他（亿元）'
                 }
             ],
+            <!-- yAxisIndex指定数据是按照哪条y轴线刻度渲染 -->
             series : [
                 {
                     'name':'GDP',
                     'type':'bar',
+                    <!-- markLine: symbol的值为数组时，分别指代线条左右两边的图标-->
+                    <!-- markLine: symbolSize的值为数组时，分别指代线条左右两边的图标的大小-->
                     'markLine':{
-                        symbol : ['arrow','none'],
-                        symbolSize : [4, 2],
+                        symbol : ['arrow','arrow'],
+                        symbolSize : [4, 4],
                         itemStyle : {
                             normal: {
                                 lineStyle: {color:'orange'},
@@ -269,7 +275,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>
@@ -279,7 +285,7 @@ option = {
     <script src="../asset/js/jquery.min.js"></script>
     <script type="text/javascript" src="../asset/js/echartsHome.js"></script>
     <script src="../asset/js/bootstrap.min.js"></script>
-    <script src="timelineOption.js"></script>	
+    <script src="timelineOption.js"></script>
     <script src="../asset/js/echartsExample.js"></script>
 </body>
 </html>

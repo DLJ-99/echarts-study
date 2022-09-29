@@ -60,7 +60,7 @@ option = {
             mark : {show: true},
             dataView : {show: true, readOnly: false},
             magicType : {
-                show: true, 
+                show: true,
                 type: ['pie', 'funnel']
             },
             restore : {show: true},
@@ -74,6 +74,7 @@ option = {
             type:'pie',
             radius : [20, 110],
             center : ['25%', 200],
+            <!-- roseType：展现模式，radius代表通过半径表现各个系列之间的百分比关系，area则是代表通过面积表现 -->
             roseType : 'radius',
             width: '40%',       // for funnel
             max: 40,            // for funnel
@@ -142,7 +143,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

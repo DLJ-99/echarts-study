@@ -65,8 +65,10 @@ var itemStyle = {
 option = {
     title: {
         text: '2010-2013年中国城镇居民家庭人均消费构成（元）',
-        subtext: '数据来自国家统计局',
-        sublink: 'http://data.stats.gov.cn/search/keywordlist2?keyword=%E5%9F%8E%E9%95%87%E5%B1%85%E6%B0%91%E6%B6%88%E8%B4%B9'
+        link:'https://www.wenjiangs.com/doc/ar3nkub0',
+        subtext: 'ZColor',
+        sublink:'https://www.wenjiangs.com/doc/ar3nkub0'
+        <!-- sublink: 'http://data.stats.gov.cn/search/keywordlist2?keyword=%E5%9F%8E%E9%95%87%E5%B1%85%E6%B0%91%E6%B6%88%E8%B4%B9' -->
     },
     tooltip: {
         trigger: 'axis',
@@ -80,7 +82,7 @@ option = {
             var res = '<div style="color:' + color + '">';
             res += '<strong>' + params[0].name + '消费（元）</strong>'
             for (var i = 0, l = params.length; i < l; i++) {
-                res += '<br/>' + params[i].seriesName + ' : ' + params[i].value 
+                res += '<br/>' + params[i].seriesName + ' : ' + params[i].value
             }
             res += '</div>';
             return res;
@@ -159,7 +161,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

@@ -75,7 +75,9 @@ option = {
                 textStyle: {color:'red'}
             },
             scale: true,
+            <!-- type: 'circle',设置雷达图为圆形 -->
             type: 'circle',
+            <!-- axisLine：设置坐标轴线样式 -->
             axisLine: {            // 坐标轴线
                 show: true,        // 默认显示，属性show控制显示与否
                 lineStyle: {       // 属性lineStyle控制线条样式
@@ -91,12 +93,14 @@ option = {
                     color: '#ccc'
                 }
             },
+            <!-- splitArea：设置分割区配置 -->
             splitArea : {
                 show : true,
                 areaStyle : {
                     color: ['rgba(250,0,250,0.3)','rgba(0,200,200,0.3)']
                 }
             },
+            <!-- splitLine：设置分割线配置 -->
             splitLine : {
                 show : true,
                 lineStyle : {
@@ -188,7 +192,7 @@ option = {
                         normal: {
                             color: function(params) {
                                 var value = params.data
-                                return isNaN(value) 
+                                return isNaN(value)
                                        ? undefined
                                        : (value >= 120 ? 'green' : 'red')
                             },
@@ -224,7 +228,7 @@ option = {
                 }
             ],
             markPoint : {
-                symbol: 'emptyHeart',
+                symbol: 'heart',
                 data : [
                     {name : '打酱油的标注', value : 100, x:'50%', y:'15%', symbolSize:32}
                 ]
@@ -246,7 +250,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

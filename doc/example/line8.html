@@ -54,7 +54,7 @@ option = {
                    + date.getHours() + ':'
                    + date.getMinutes();
             return data + '<br/>'
-                   + params.value[1] + ', ' 
+                   + params.value[1] + ', '
                    + params.value[2];
         }
     },
@@ -67,6 +67,7 @@ option = {
             saveAsImage : {show: true}
         }
     },
+    <!-- dataZoom:数据视图显示配置，start代表开始位置，end代表结束位置 -->
     dataZoom: {
         show: true,
         start : 70
@@ -74,6 +75,9 @@ option = {
     legend : {
         data : ['series1']
     },
+    <!-- grid x,grid x2,grid.y,grid.y2:-->
+    <!-- 其中：x指的是x轴最左端到grid最左侧的距离，x2指的是x轴的最右端到grid最右侧的距离-->
+    <!-- y指的是y轴最上端到grid最上侧的距离，y2指的是y轴的最下端到grid最下侧的距离-->
     grid: {
         y2: 80
     },
@@ -127,7 +131,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

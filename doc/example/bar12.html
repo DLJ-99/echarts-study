@@ -86,32 +86,46 @@ option = {
             axisLabel:{formatter:'{value} ms'}
         }
     ],
+    <!-- 使用不同的xAxisIndex来实现部分数据堆积展示 0和1-->
+    <!-- 页面展示的顺序与系列的数据的顺序相关 -->
     series : [
         {
             name:'ECharts2 - 2k数据',
             type:'bar',
+            xAxisIndex:0,
             itemStyle: {normal: {color:'rgba(193,35,43,1)', label:{show:true}}},
             data:[40,155,95,75, 0]
         },
         {
-            name:'ECharts2 - 2w数据',
+            name:'ECharts1 - 2k数据',
             type:'bar',
-            itemStyle: {normal: {color:'rgba(181,195,52,1)', label:{show:true,textStyle:{color:'#27727B'}}}},
-            data:[100,200,105,100,156]
+            xAxisIndex:0,
+            itemStyle: {normal: {color:'rgba(193,35,43,0.5)', label:{show:true,formatter:function(p){return p.value > 0 ? (p.value +'\n'):'';}}}},
+            data:[96,224,164,124,0]
         },
         {
             name:'ECharts2 - 20w数据',
             type:'bar',
+            xAxisIndex:0,
             itemStyle: {normal: {color:'rgba(252,206,16,1)', label:{show:true,textStyle:{color:'#E87C25'}}}},
             data:[906,911,908,778,0]
         },
+
         {
-            name:'ECharts1 - 2k数据',
+            name:'ECharts1 - 20w数据',
             type:'bar',
             xAxisIndex:1,
-            itemStyle: {normal: {color:'rgba(193,35,43,0.5)', label:{show:true,formatter:function(p){return p.value > 0 ? (p.value +'\n'):'';}}}},
-            data:[96,224,164,124,0]
+            itemStyle: {normal: {color:'rgba(252,206,16,0.5)', label:{show:true,formatter:function(p){return p.value > 0 ? (p.value +'+'):'';}}}},
+            data:[3000,3000,2817,3000,0]
         },
+        {
+            name:'ECharts2 - 2w数据',
+            type:'bar',
+            xAxisIndex:1,
+            itemStyle: {normal: {color:'rgba(181,195,52,1)', label:{show:true,textStyle:{color:'#27727B'}}}},
+            data:[100,200,105,100,156]
+        },
+
         {
             name:'ECharts1 - 2w数据',
             type:'bar',
@@ -119,13 +133,7 @@ option = {
             itemStyle: {normal: {color:'rgba(181,195,52,0.5)', label:{show:true}}},
             data:[491,2035,389,955,347]
         },
-        {
-            name:'ECharts1 - 20w数据',
-            type:'bar',
-            xAxisIndex:1,
-            itemStyle: {normal: {color:'rgba(252,206,16,0.5)', label:{show:true,formatter:function(p){return p.value > 0 ? (p.value +'+'):'';}}}},
-            data:[3000,3000,2817,3000,0]
-        }
+
     ]
 };
                     </textarea>
@@ -142,7 +150,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

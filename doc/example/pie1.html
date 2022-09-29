@@ -60,7 +60,7 @@ option = {
             mark : {show: true},
             dataView : {show: true, readOnly: false},
             magicType : {
-                show: true, 
+                show: true,
                 type: ['pie', 'funnel'],
                 option: {
                     funnel: {
@@ -76,11 +76,12 @@ option = {
         }
     },
     calculable : true,
+    <!-- radius：饼图半径，当值为数组时，第一个值为内圈半径，第二个值为外圈半径；当值为字符串时，代表内外圈半径均为该值； center：中心点位置-->
     series : [
         {
             name:'访问来源',
             type:'pie',
-            radius : '55%',
+            radius : '55',
             center: ['50%', '60%'],
             data:[
                 {value:335, name:'直接访问'},
@@ -106,7 +107,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

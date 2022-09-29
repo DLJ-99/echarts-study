@@ -45,10 +45,15 @@
                     <div class="nav-header"><a href="#" onclick="autoResize()" class="glyphicon glyphicon-resize-full" id ="icon-resize" ></a>option</div>
                     <textarea id="code" name="code">
 option = {
+    <!-- textStyle.align:水平方向对齐方式； textStyle.baseline:垂直方向对齐方式；-->
     title : {
         text: 'iphone销量',
         subtext: '纯属虚构',
-        x:'center'
+        x:'center',
+        textStyle:{
+            align:"center",
+            baseline:"middle"
+        }
     },
     tooltip : {
         trigger: 'item'
@@ -78,6 +83,7 @@ option = {
             saveAsImage : {show: true}
         }
     },
+    <!-- roamController：地图缩放快捷组件 mapTypeControl：设置控制目标-->
     roamController: {
         show: true,
         x: 'right',
@@ -85,11 +91,20 @@ option = {
             'china': true
         }
     },
+    <!-- mapType： 设置地图的范围-->
+    <!-- mapType: 'china',"//加载中国地图，并显示34个省直辖市自治区 -->
+   <!-- mapType: 'china|上海|闵行区',"//加载出错，无法识别该name -->
+   <!-- mapType: 'china|上海',//加载出了上海地图，但无法显示出上海各区 -->
+   <!-- mapType: '上海',//加载上海地图，并显示上海各区 -->
+   <!-- mapType: '上海市',//直辖市，加了市，无法识别-->
+   <!-- mapType: '浙江|杭州市',//显示杭州地图，但没有显示杭州各区          -->
+   <!-- mapType: '杭州市',//非直辖市，需要表上省 -->
+   <!-- data: 1.未加市，不可识别,加了市，可识别 ;2.不可识别市级以下级别;3.不可识别，无区级及以下地图-->
     series : [
         {
             name: 'iphone3',
             type: 'map',
-            mapType: 'china',
+            mapType: '浙江',
             roam: false,
             itemStyle:{
                 normal:{label:{show:true}},
@@ -196,7 +211,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

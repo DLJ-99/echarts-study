@@ -55,7 +55,7 @@ option = {
             mark : {show: true},
             dataView : {show: true, readOnly: false},
             magicType : {
-                show: true, 
+                show: true,
                 type: ['pie', 'funnel']
             },
             restore : {show: true},
@@ -63,19 +63,20 @@ option = {
         }
     },
     calculable : false,
+    <!-- selectedMode：选中模式，可选值：single、multiple ，默认为false。代表不可突出选中-->
     series : [
         {
             name:'访问来源',
             type:'pie',
             selectedMode: 'single',
             radius : [0, 70],
-            
+
             // for funnel
             x: '20%',
             width: '40%',
             funnelAlign: 'right',
             max: 1548,
-            
+
             itemStyle : {
                 normal : {
                     label : {
@@ -96,13 +97,13 @@ option = {
             name:'访问来源',
             type:'pie',
             radius : [100, 140],
-            
+
             // for funnel
             x: '60%',
             width: '35%',
             funnelAlign: 'left',
             max: 1048,
-            
+
             data:[
                 {value:335, name:'直达'},
                 {value:310, name:'邮件营销'},
@@ -117,6 +118,7 @@ option = {
     ]
 };
 var ecConfig = require('echarts/config');
+<!-- ecConfig.EVENT.PIE_SELECTED：饼图选中事件的相关配置 -->
 myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param){
     var selected = param.selected;
     var serie;
@@ -125,7 +127,7 @@ myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param){
         serie = option.series[idx];
         for (var i = 0, l = serie.data.length; i < l; i++) {
             if (selected[idx][i]) {
-                str += '【系列' + idx + '】' + serie.name + ' : ' + 
+                str += '【系列' + idx + '】' + serie.name + ' : ' +
                        '【数据' + i + '】' + serie.data[i].name + ' ';
             }
         }
@@ -146,7 +148,7 @@ myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param){
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

@@ -56,6 +56,7 @@ option = {
                    + params[1].seriesName + ' : ' + (params[1].value + params[0].value);
         }
     },
+    <!-- selectedMode:false 取消legend可自主勾选显示的功能 -->
     legend: {
         selectedMode:false,
         data:['Acutal', 'Forecast']
@@ -76,6 +77,8 @@ option = {
             data : ['Cosco','CMA','APL','OOCL','Wanhai','Zim']
         }
     ],
+    <!-- boundaryGap: [0, 0.1]:坐标轴两端空白策略，数组里数值代表百分比。分别代表原始数据最小值与坐标轴数据最小值相差的百分比差额，原始数据最大值与坐标轴数据最大值的百分比差额 -->
+    <!-- 比如：原始数据范围：0-120，那么[0.5,1]就代表坐标值范围是[0-0.5*(120-0),120+1*(120-0)] -->
     yAxis : [
         {
             type : 'value',
@@ -112,7 +115,7 @@ option = {
                     barBorderWidth: 6,
                     barBorderRadius:0,
                     label : {
-                        show: true, 
+                        show: true,
                         position: 'top',
                         formatter: function (params) {
                             for (var i = 0, l = option.xAxis[0].data.length; i < l; i++) {
@@ -145,7 +148,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>
