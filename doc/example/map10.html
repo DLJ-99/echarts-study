@@ -51,6 +51,11 @@ option = {
         text: '南航主要航空线路',
         x:'center'
     },
+    <!-- 对于formatter方法的格式，其中有{a}{b}{c}{d}{e}五种模板变量，分别表示系列名，类名，数据值等。在triggle属性为axis时候，系列名，类名可能不止一个，这时候可以用{a0}，{a1}，{a2}表示不用的系列。不同图表下的{a},{b},{c},{d}含义也不一样。-->
+    <!-- 折线（区域）图、柱状（条形）图、k线图：{a}系列名称，{b}（类目值），{c}（数值），{d}（无） -->
+    <!-- 散点（气泡）图：{a}（系列名称），{b}数据名称，{c}数值数组，{d}无 -->
+    <!-- 地图：{a}系列名称，{b}区域名称，{c}合并数值，{d}无 -->
+    <!-- 饼图、仪表盘、漏斗图：{a}系列名称，{b}数据项名称，{c}数值，{d}百分比  -->
     tooltip : {
         trigger: 'item',
         formatter: '{b}'
@@ -80,6 +85,7 @@ option = {
             roam: true,
             hoverable: false,
             data:[],
+            <!-- markLine：标记线，其中data的数据类型固定为： [{name:'北京'},{name:'包头'}]-->
             markLine : {
                 itemStyle : {
                     normal: {
@@ -402,7 +408,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

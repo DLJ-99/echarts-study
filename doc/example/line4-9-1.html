@@ -41,19 +41,14 @@
                     <textarea id="code" name="code">
 option = {
     tooltip : {
-        trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        }
+        trigger: 'axis'
     },
     legend: {
-        data:['中长期交易电量','日前现货交易电量','实时现货交易电量','中长期交易价格','日前现货交易价格','实时现货交易价格']
+        data:['山东日前价格','山东实时价格','山西日前价格','山西实时价格','广东日前价格','广东实时价格']
     },
     toolbox: {
-        show : true,
-        orient: 'vertical',
-        x: 'right',
-        y: 'center',
+        show : false,
+        <!-- feature.magicType:可以控制数据以何种形式展示，包括：stack（堆积）、tiled（平铺） -->
         feature : {
             mark : {show: true},
             dataView : {show: true, readOnly: false},
@@ -66,58 +61,50 @@ option = {
     xAxis : [
         {
             type : 'category',
-            data : ['10/11','10/12','10/13','10/14','10/15','10/16','10/17']
+            data : ['01:00','04:00','07:00','10:00','13:00','16:00','19:00','21:00','24:00']
         }
     ],
     yAxis : [
         {
-            type : 'value',
-            name: "电量(万KWh)",
+            type : 'value'
         },
         {
-            type: 'value',
-            name: "价格(元)",
-            position: 'right'
-        },
-
+            type : 'value',
+            position:'right'
+        }
     ],
+    <!-- series[].smooth:当type为line时，该属性值控制线条是否平滑展示，默认值为true -->
     series : [
         {
-            name:'中长期交易电量',
-            type:'bar',
-            stack: '电量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'日前现货交易电量',
-            type:'bar',
-            stack: '电量',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'实时现货交易电量',
-            type:'bar',
-            stack: '电量',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'中长期交易价格',
+            name:'山东日前价格',
             type:'line',
-            yAxisIndex:1,
-            data:[1.50, 2.32, 2.01, 1.54, 1.90, 3.30, 4.10]
+            data:[20.94,19.92, 20.84, 21.90, 20.90, 21.89, 21.88, 22.19, 21.88]
         },
         {
-            name:'日前现货交易价格',
+            name:'山东实时价格',
             type:'line',
-            yAxisIndex:1,
-            data:[1.20, 1.32, 1.01, 1.34, 2.90, 2.30, 2.20]
+            data:[22.94,18.92, 23.84, 22.90, 19.90, 21.89, 22.88, 21.19, 20.88]
         },
         {
-            name:'实时现货交易价格',
+            name:'山西日前价格',
             type:'line',
-            yAxisIndex:1,
-            data:[6.20, 7.32, 7.01, 7.34, 10.90, 11.30, 11.20]
-        }
+            data:[18.94,16.92, 21.84, 20.90, 22.90, 21.89, 20.88, 20.19, 20.88]
+        },
+        {
+            name:'山西实时价格',
+            type:'line',
+            data:[21.94,19.92, 22.84, 20.90, 18.90, 20.89, 21.88, 20.19, 21.88]
+        },
+        {
+            name:'广东日前价格',
+            type:'line',
+            data:[19.94,18.92, 21.84, 22.90, 21.90, 20.89, 18.88, 20.19, 19.88]
+        },
+        {
+            name:'广东实时价格',
+            type:'line',
+            data:[20.94,19.92, 20.84, 21.90, 19.90, 20.89, 23.88, 20.19, 22.88]
+        },
     ]
 };
                     </textarea>

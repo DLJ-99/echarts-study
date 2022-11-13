@@ -101,7 +101,7 @@ if (developMode) {
             script.onload = fireLoad;
         }
         (document.getElementsByTagName('head')[0] || document.body).appendChild(script);
-        
+
         function fireLoad() {
             script.onload = script.onreadystatechange = null;
             setTimeout(loadedListener,100);
@@ -130,7 +130,7 @@ if (developMode) {
 else {
     // for echarts online home page
     require.config({
-        paths:{ 
+        paths:{
             echarts: '../../build/dist'
         }
     });
@@ -182,7 +182,7 @@ function requireCallback (ec) {
         myChart[i] = echarts.init(domMain[i]);
     }
     refreshAll();
-    
+
     window.onresize = function (){
         for (var i = 0, l = myChart.length; i < l; i++) {
             myChart[i].resize && myChart[i].resize();

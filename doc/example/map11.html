@@ -23,7 +23,7 @@
     <script src="./www/js/echarts.js"></script>
     <script src="../asset/js/codemirror.js"></script>
     <script src="../asset/js/javascript.js"></script>
-
+    <script src="../../src/util/addNotes/add.js"></script>
     <link href="../asset/css/codemirror.css" rel="stylesheet">
     <link href="../asset/css/monokai.css" rel="stylesheet">
 
@@ -113,7 +113,7 @@ option = {
             data:[],
             markLine : {
                 smooth:true,
-                symbol: ['none', 'circle'],  
+                symbol: ['none', 'circle'],
                 symbolSize : 1,
                 itemStyle : {
                     normal: {
@@ -275,6 +275,7 @@ option = {
                     [{name:'广州'},{name:'盐城'}]
                 ],
             },
+            <!-- geoCoord：设置空间位置 -->
             geoCoord: {
                 '上海': [121.4648,31.2891],
                 '东莞': [113.8953,22.901],
@@ -609,7 +610,7 @@ option = {
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-        
+
         </div><!--/.fluid-container-->
 
     <footer id="footer"></footer>

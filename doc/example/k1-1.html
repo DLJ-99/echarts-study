@@ -40,83 +40,91 @@
                     <div class="nav-header"><a href="#" onclick="autoResize()" class="glyphicon glyphicon-resize-full" id ="icon-resize" ></a>option</div>
                     <textarea id="code" name="code">
 option = {
+    title : {
+        text: '24小时成交价K线图'
+    },
     tooltip : {
         trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        formatter: function (params) {
+            var res = params[0].seriesName + ' ' + params[0].name;
+            res += '<br/>  开盘 : ' + params[0].value[0] + '  最高 : ' + params[0].value[3];
+            res += '<br/>  收盘 : ' + params[0].value[1] + '  最低 : ' + params[0].value[2];
+            return res;
         }
     },
     legend: {
-        data:['中长期交易电量','日前现货交易电量','实时现货交易电量','中长期交易价格','日前现货交易价格','实时现货交易价格']
+        data:['24小时成交价']
     },
     toolbox: {
-        show : true,
-        orient: 'vertical',
-        x: 'right',
-        y: 'center',
+        show : false,
         feature : {
             mark : {show: true},
+            dataZoom : {show: true},
             dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            magicType: {show: true, type: ['line', 'bar']},
             restore : {show: true},
             saveAsImage : {show: true}
         }
     },
-    calculable : true,
+    dataZoom : {
+        show : true,
+        realtime: true,
+        start : 0,
+        end : 100
+    },
     xAxis : [
         {
             type : 'category',
-            data : ['10/11','10/12','10/13','10/14','10/15','10/16','10/17']
+            boundaryGap : true,
+            axisTick: {onGap:false},
+            splitLine: {show:false},
+            data : [
+                "1时", "2时", "3时", "4时", "5时",
+                "6时", "7时", "8时", "9时", "10时",
+                "11时", "12时", "13时", "14时", "15时",
+                "16时", "17时", "18时", "19时", "20时",
+                "21时", "22时", "23时", "24时"
+            ]
         }
     ],
     yAxis : [
         {
             type : 'value',
-            name: "电量(万KWh)",
-        },
-        {
-            type: 'value',
-            name: "价格(元)",
-            position: 'right'
-        },
-
+            scale:true,
+            boundaryGap: [0.01, 0.01]
+        }
     ],
+    <!-- type:'k':代表该图表为k线图，数据格式为： 开盘，收盘，最低，最高-->
     series : [
         {
-            name:'中长期交易电量',
-            type:'bar',
-            stack: '电量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'日前现货交易电量',
-            type:'bar',
-            stack: '电量',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'实时现货交易电量',
-            type:'bar',
-            stack: '电量',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'中长期交易价格',
-            type:'line',
-            yAxisIndex:1,
-            data:[1.50, 2.32, 2.01, 1.54, 1.90, 3.30, 4.10]
-        },
-        {
-            name:'日前现货交易价格',
-            type:'line',
-            yAxisIndex:1,
-            data:[1.20, 1.32, 1.01, 1.34, 2.90, 2.30, 2.20]
-        },
-        {
-            name:'实时现货交易价格',
-            type:'line',
-            yAxisIndex:1,
-            data:[6.20, 7.32, 7.01, 7.34, 10.90, 11.30, 11.20]
+            name:'24小时成交价',
+            type:'k',
+            data:[ // 开盘，收盘，最低，最高
+                [23.26,23.6,22.6,23.6],
+                [23.6,22.6,22.6,23.6],
+                [22.265,23.26,22.26,23.6],
+                [23.826,23.268,23.265,23.68],
+                [23.65,23.68,23.69,23.66],
+                [23.6,23.6,23.6,23.6],
+                [23.61,24.6,23.57,24.57],
+                [24.92,24.15,24.58,24.38],
+                [24,24.13,24.3,24.42],
+                [24.68,24.48,24.7,24.73],
+                [24.69,24.53,23.22,24.89],
+                [24.62,24.4,24.4,24.03],
+                [24.91,24.56,24.43,24.8],
+                [24.26,23.91,23.53,24.07],
+                [23.49,23.18,23.61,23.94],
+                [23.82,23.95,23.17,23.82],
+                [23.94,23.16,23.76,23.88],
+                [23.62,23.82,25.01,23.78],
+                [23.74,22.34,22.89,23.71],
+                [22.77,23.22,22.03,23.63],
+                [23.32,23.59,23.92,23.16],
+                [23.54,23.51,23.86,23.65],
+                [23.08,23.4,22.25,23.54],
+                [22.81,23.31,22.1,23.14]
+            ]
         }
     ]
 };
